@@ -1,3 +1,7 @@
+시작전 VMware에서 총 4대의 가상머신을 만들고 이름을 각각 namenode, snamenode, datanode1,datanode2 로 지정하고 시작
+namenode setting
+작업할 공유폴더 지정하고 vmware 좌측상단 VM-VMtool 설치후 진행
+
 cd /mnt
 ls
 mkdir cdrom
@@ -6,7 +10,7 @@ mount /dev/cdrom /mnt/cdrom
 cd cdrom
 ls
 mv VMwareTools-10.3.21-14772444.tar.gz /usr/local/src
- vi ~/.bashrc
+vi ~/.bashrc
 source ~/.bashrc
 mv VMwareTools-10.3.21-14772444.tar.gz /usr/local/src
 cd /usr/local/src
