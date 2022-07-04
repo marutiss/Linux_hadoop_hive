@@ -1,0 +1,39 @@
+cd /mnt
+ls
+mkdir cdrom
+ls
+mount /dev/cdrom /mnt/cdrom
+cd cdrom
+ls
+mv VMwareTools-10.3.21-14772444.tar.gz /usr/local/src
+ vi ~/.bashrc
+source ~/.bashrc
+mv VMwareTools-10.3.21-14772444.tar.gz /usr/local/src
+cd /usr/local/src
+ls
+tar zxvfp VMwareTools-10.3.21-14772444.tar.gz
+ ls
+cd vmware-tools-distrib
+ls
+ ./vmware-install.pl
+cd /mnt
+ls
+vi ~/.bashrc
+ source ~/.bashrc
+cd hgfs/temp
+ls
+cd u*/O*/L*
+ ls
+java -version
+rpm -qa |grep java
+yum remove java-1.7.0-openjdk-1.7.0.111-2.6.7.8.el7.x86_64 java-1.8.0-openjdk-1.8.0.102-4.b14.el7.x86_64 java-1.8.0-openjdk-headless-1.8.0.102-4.b14.el7.x86_64 java-1.7.0-openjdk-headless-1.7.0.111-2.6.7.8.el7.x86_64
+ls
+cp jdk1.8.0_321 /usr/local
+mv jdk1.8.0_321 /usr/local
+loc
+ls
+ln -s jdk1.8.0_321 java
+ ls
+vi /etc/p
+source /etc/profile
+java -version
