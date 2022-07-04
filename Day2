@@ -1,0 +1,58 @@
+목표: namenode, snamenode, datanode1, datanode2 연결
+
+namenode에서 작업한 기록
+
+호스트 이름 변경
+>>vi /etc/hostname해서 이름 바꾸고 /reboot해서 저장 필요
+작업시작전에 미리해둘것 >> 다른 노드들도 
+
+vi /etc/hostname >>내용물 다 날리고 이름만쓰기
+init 6 >>재시작명령어
+ ifconfig  아이피확인 >>노드별로 모두 확인
+
+vi /etc/hosts 확인한 아이피 4개를 붙여넣기
+vi ~/.bashrc
+ssh root@snamenode
+ssh root@datanode1 
+>>연결확인
+
+cd 
+pwd
+ssh-keygen -t rsa 접촉권한이 있는 키 생성 >>노드별로 모두실행
+
+cd .ssh
+ls
+
+cat id_rsa.pub>authorized_keys
+  >>authorized_keys 파일로 생성된 키 복사
+ls
+cat authorized_keys
+ssh root@snamenode cat ~/.ssh/id_rsa.pub>>~/.ssh/authorized_keys 
+>>다른가상컴의 키 자겨오기
+
+ls -lrt
+cat authorized_keys
+>>authorized_keys파일에 복사
+ssh root@datanode1 cat ~/.ssh/id_rsa.pub>>~/.ssh/authorized_keys
+ls
+cat authorized_keys
+ssh root@datanode2 cat ~/.ssh/id_rsa.pub>>~/.ssh/authorized_keys
+cat authorized_keys
+
+scp -rp authorized_keys root@snamenode:~/.ssh/authorized_keys 
+scp -rp authorized_keys root@datanode1:~/.ssh/authorized_keys
+scp -rp authorized_keys root@datanode2:~/.ssh/authorized_keys
+가상키 모음 파일을 다른 노드에 배포
+ssh snamenode date
+
+
+
+다른 node작업 기록
+
+ifconfig 아이피확인
+vi /etc/hosts 아이피주소 붙여넣기
+cd 
+최상단디렉토리로 이동
+ssh-keygen -t rsa 키생성
+cd .ssh 
+ls
