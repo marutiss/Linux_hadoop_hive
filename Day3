@@ -1,0 +1,78 @@
+3일차 기록/ namenode
+
+mkdir -p /home/hadoop/hdfs/temp
+mkdir -p /home/hadoop/hdfs/name
+mkdir -p /home/hadoop/hdfs/data
+	>>로그데이터 저장소 생성
+ls
+cd u*
+ls
+cd L*
+>>하둡넣어논 폴더로 이동
+
+ls
+tar xzvfp hadoop-1.0.4.tar.gz
+>>압축해제  
+ls
+mv hadoop-1.0.4 /usr/local
+>>하둡폴더 VM으로 이동
+loc
+ls
+ln -s hadoop-1.0.4 hadoop
+	>>심볼화
+ls -lrt
+cd hadoop
+cd conf
+ls
+vi core-site.xml
+vi hdfs-site.xml
+vi mapred-site.xml
+vi hadoop-env.sh
+vi masters
+vi slaves
+>>환경설정 텍스트 파일참고  
+loc
+ls
+vi /etc/profile
+	>>export JAVA_HOME=/usr/local/java
+     export PATH=$JAVA_HOME/bin:$HADOOP_HOME/bin:$PATH
+     export HADOOP_HOME=/usr/local/hadoop
+경로설정
+source /etc/profile
+
+start-all.sh
+>>hadoop  실행
+
+loc
+ls
+ls -l
+tar czvfp hadoop.tar.gz hadoop-1.0.4/ >>local의 하둡파일을 압축
+scp -rp hadoop.tar.gz root@snamenode:/usr/local
+scp -rp hadoop.tar.gz root@datanode1:/usr/local
+scp -rp hadoop.tar.gz root@datanode2:/usr/local
+scp -rp hadoop.tar.gz root@datanode3:/usr/local
+scp -rp hadoop.tar.gz root@datanode4:/usr/local
+>>전송
+
+vi ~/.bashrc
+내용추가
+>>alias mr='rm -rf /home/hadoop/hdfs/mapred/*'
+  alias tr='rm -rf /home/hadoop/hdfs/temp/*'
+  alias sps='systemctl stop firewalld'
+
+source ~/.bashrc
+
+—다른컴
+loc
+ls
+tar xzvfp hadoop.tar.gz
+ls
+ln -s hadoop-1.0.4 hadoop
+ls
+vi ~/.bashrc
+내용추가
+>>alias mr='rm -rf /home/hadoop/hdfs/mapred/*'
+  alias tr='rm -rf /home/hadoop/hdfs/temp/*'
+  alias sps='systemctl stop firewalld'
+
+source ~/.bashrc
