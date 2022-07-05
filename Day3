@@ -48,8 +48,7 @@ tar czvfp hadoop.tar.gz hadoop-1.0.4/ >>local의 하둡파일을 압축
 scp -rp hadoop.tar.gz root@snamenode:/usr/local
 scp -rp hadoop.tar.gz root@datanode1:/usr/local
 scp -rp hadoop.tar.gz root@datanode2:/usr/local
-scp -rp hadoop.tar.gz root@datanode3:/usr/local
-scp -rp hadoop.tar.gz root@datanode4:/usr/local
+
 >>전송
 
 vi ~/.bashrc
