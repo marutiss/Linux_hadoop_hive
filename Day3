@@ -40,8 +40,6 @@ vi /etc/profile
 경로설정
 source /etc/profile
 
-start-all.sh
->>hadoop  실행
 
 loc
 ls
@@ -76,3 +74,39 @@ vi ~/.bashrc
   alias sps='systemctl stop firewalld'
 
 source ~/.bashrc
+
+mr
+tr
+sps
+ips
+loc
+ls
+hadoop namenode -format
+>>namenode의 hadoop 초기화
+start-all.sh
+>>4개의 하둡 모두 실행
+
+
+jps
+>>정상실행시 namenode에서는 
+15799 JobTracker
+15917 Jps
+15615 NameNode
+출력
+
+snamenode에서는 
+>>jps
+4832 SecondaryNameNode
+4740 DataNode
+4918 TaskTracker
+4982 Jps
+
+datanode1, datanode2에서는
+>>jps
+5499 DataNode
+5595 TaskTracker
+5663 Jps
+
+확인후 
+stop-all.sh
+>>
