@@ -1,0 +1,68 @@
+datanode 3,4 추가
+새로운 머신추가후 상단VM>> VMware tool 설치후 마운트 진행
+cd /mnt
+ls
+mkdir cdrom
+ls
+mount /dev/cdrom /mnt/cdrom
+cd cdrom
+ls
+mv VMwareTools-10.3.21-14772444.tar.gz /usr/local/src
+vi ~/.bashrc
+source ~/.bashrc
+mv VMwareTools-10.3.21-14772444.tar.gz /usr/local/src
+cd /usr/local/src
+ls
+tar zxvfp VMwareTools-10.3.21-14772444.tar.gz
+ ls
+cd vmware-tools-distrib
+ls
+ ./vmware-install.pl
+cd /mnt
+ls
+vi ~/.bashrc
+source ~/.bashrc
+ 
+자바설치
+cd hgfs/temp
+ls
+cd u*/O*/L*
+ ls
+java -version
+rpm -qa |grep java
+yum remove java-1.7.0-openjdk-1.7.0.111-2.6.7.8.el7.x86_64 java-1.8.0-openjdk-1.8.0.102-4.b14.el7.x86_64 java-1.8.0-openjdk-headless-1.8.0.102-4.b14.el7.x86_64 java-1.7.0-openjdk-headless-1.7.0.111-2.6.7.8.el7.x86_64
+ls
+cp jdk1.8.0_321 /usr/local
+mv jdk1.8.0_321 /usr/local
+loc
+ls
+ln -s jdk1.8.0_321 java
+ ls
+vi /etc/p
+source /etc/profile
+java -version
+
+
+호스트 이름 변경
+>>vi /etc/hostname해서 이름 바꾸고 /reboot
+
+vi /etc/hostname >>내용물 다 날리고 이름만쓰기
+ifconfig  아이피확인 
+vi /etc/hosts 확인한 아이피 4개를 붙여넣기
+
+cd 
+pwd
+ssh-keygen -t rsa 접촉권한이 있는 키 생성 >>노드별로 모두실행
+cd .ssh
+ls
+cat id_rsa.pub>authorized_keys
+  >>authorized_keys 파일로 생성된 키 복사
+ls
+cat authorized_keys
+
+ssh root@snamenode cat ~/.ssh/id_rsa.pub>>~/.ssh/authorized_keys 
+>>이미 다른 키들도 기록되있으므로 한곳에서만 가져오면 됨
+>>인식키 공유 (vi로 복사 붙여넣기도 됨)
+>> /hadoop/conf에서 파일일부 수정
+hdfs-site.xml >>value변경 총 5개 사용
+slaves>>새로 추가한 노드이름 추가
