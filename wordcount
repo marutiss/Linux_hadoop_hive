@@ -1,0 +1,52 @@
+cd hadoop
+>>hadoop디렉토리의 예제를 위해 이동
+cd .. >>상위폴더 이동
+ls
+hadoop dfs -lsr /
+>>하둡파일을 목록으로 출력, /로 전부를 의미
+hadoop dfs -mkdir input
+>>하둡파일 디렉토리 input생성
+hadoop dfs -lsr /
+>>생성여부 확인
+ls
+ hadoop dfs -put CHANGES.txt /user/root/input
+	>>ls로 볼수있는 하둡디렉토리 안의 txt파일을 하둡의 input이동
+hadoop dfs -lsr /
+hadoop jar hadoop-examples-1.0.4.jar wordcount /user/root/input/CHANGES.txt output
+	>>하둡의 jar파일 중 hadoop-examples-1.0.4.jar의 wordcount를 사용해서
+    /user/root/input/CHANGES.txt 를 처리후 output이란 이름의 파일로 생성
+ls
+hadoop dfs -lsr /
+hadoop dfs -cat /user/root/output/part-r-00000>>/mnt/hgfs/temp/test1
+	>>생성된 결과 파일을 /mnt/hgfs/temp/test1로 내용카피
+sf
+ls
+	>>생성여부 확인
+
+
+
+loc
+ls
+cd hadoop
+ 
+sf
+ls
+cd u*/L*/실습
+>>실습할 파일이 보관된 곳
+ls
+mv obama.txt /usr/local/hadoop
+mv trump.txt /usr/local/hadoop
+	>>파일을 하둡으로 이동
+loc
+cd hadoop
+hadoop dfs -put obama.txt /user/root/input
+hadoop dfs -lsr /
+hadoop jar hadoop-examples-1.0.4.jar wordcount /user/root/input/obama.txt obamaOP
+	>>분석한 obama.txt파일을 obamaOP라는 이름으로 출력
+hadoop dfs -lsr /
+hadoop dfs -cat /user/root/obamaOP/part-r-00000>>/mnt/hgfs/temp/HW1\
+	>>출력한 파일을 HW1이란 이름으로 카피및 이동
+hadoop dfs -put trump.txt /user/root/input
+hadoop jar hadoop-examples-1.0.4.jar wordcount /user/root/input/trump.txt trumpOP
+hadoop dfs -lsr /
+hadoop dfs -cat /user/root/trumpOP/part-r-00000>>/mnt/hgfs/temp/HW2
