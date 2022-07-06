@@ -1,0 +1,34 @@
+hadoop설치
+
+sf
+ls
+cd u*
+cd L*
+ls
+tar xzvfp hive-0.9.0.tar.gz
+ls
+mv hive-0.9.0 /usr/local
+loc
+ls
+ln -s hive-0.9.0 hive
+>>하이브 심볼화
+
+ls
+cd hive
+ls
+cd conf
+ls
+mv hive-exec-log4j.properties.template hive-log4j.properties
+mv hive-log4j.properties.template hive-exec-log4j.properties
+vi hive-exec-log4j.properties
+vi hive-log4j.properties
+ls -lrt
+vi /etc/profile
+source /etc/profile
+
+sf
+mkdir HIVE_WORK
+>>하이브 작업공간 생성
+cd HIVE_WORK
+hive
+>>하이브 실행
